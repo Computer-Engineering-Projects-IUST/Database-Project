@@ -2,23 +2,23 @@ use [Stock Market] Create table SherkatBoorsi(
 	Sherkat_id int not null,
 	name nvarchar(50) not null,
 	CodeSabti int not null UNIQUE,
-	TedadSahamArzeShode int,
-	ArzeshSaham int,
-	HajmMabna int,
-	grouh nvarchar (50) not null,
+	TedadSahamArzeShode int,    /////
+	ArzeshSaham int,           //////
+	HajmMabna int,             //////
+	grouh nvarchar (50) not null,  //Field??
 	PRIMARY KEY (Sherkat_id),
-	CONSTRAINT dummy_cons CHECK (grouh != 'kladfla')
+	CONSTRAINT dummy_cons CHECK (grouh != 'kladfla')  ///
 );
 Create table Kargozari(
 	CodeKargozari int not null Primary key,
-	NerkhKarmozd int not null check (
+	NerkhKarmozd int not null check (       ///
 		NerkhKarmozd >= 0
 		and NerkhKarmozd <= 100
 	),
-	Website nvarchar(50),
-	Phone char(11),
-	Adress nvarchar(200),
-) Create table DaftarPishkhan(
+	Website nvarchar(50),         ///
+	Phone char(11),    ///
+	Adress nvarchar(200),    
+) Create table DaftarPishkhan(             ////////////////????????????/
 	CodeDaftar int not null Primary Key,
 	name nvarchar (50) not null,
 	Ostan nvarchar(30) not null,
@@ -27,12 +27,12 @@ Create table Kargozari(
 	Phone char(11),
 	CodeMelliMasool char(10) not null check (CodeMelliMasool NOT LIKE '%[^0-9]%'),
 	CONSTRAINT dummy_cons_1 CHECK (codePosti > -100)
-) create table SarmayeGozar(
+) create table SarmayeGozar(               //////
 	CodeBoorsi int not null Primary Key,
 	CodeDaftarPishkhan int,
 	Foreign Key (CodeDaftarPishkhan) references DaftarPishkhan(CodeDaftar) on delete
 	set null on update cascade,
-) Create table Daraee (
+) Create table Daraee (                        ///////////////
 	IdDaraee int not null Primary Key,
 	IdSherkat int not null,
 	CodeBoorsiSarmayeGozar int not null,
@@ -40,7 +40,7 @@ Create table Kargozari(
 	GheymatHarSahmDarZamanKharid int,
 	Foreign Key (IdSherkat) References SherkatBoorsi(Sherkat_id) on delete cascade on update cascade,
 	Foreign Key (CodeBoorsiSarmayeGozar) References SarmayeGozar(CodeBoorsi) on delete CASCADE on update CASCADE
-) Create table KarbarHaghighi(
+) Create table KarbarHaghighi(                  ///////////////////////
 	CodeBoorsi int not null Primary Key,
 	ShomareTelePhoneHamrah char(11) not null,
 	Shahr nvarchar (30) not null,
@@ -61,7 +61,7 @@ Create table Kargozari(
 	Name nvarchar(50) not null,
 	Foreign Key (CodeBoorsi) references SarmayeGozar(CodeBoorsi),
 	Foreign Key (CodeKargozari) references Kargozari(CodeKargozari),
-) Create table KarbarHoghoghi(
+) Create table KarbarHoghoghi(                      /////////////////
 	CodeBoorsi int not null Primary Key,
 	CodeMeliNamayandeSherkat char(10) not null check (CodeMeliNamayandeSherkat NOT LIKE '%[^0-9]%'),
 	ShenaseMeli int,
@@ -83,7 +83,7 @@ Create table Kargozari(
 	Foreign Key (CodeBoorsi) references SarmayeGozar(CodeBoorsi) on delete cascade on update cascade,
 	Foreign Key (CodeBoorsiNamayande) references KarbarHaghighi(CodeBoorsi) on delete
 	set DEFAULT on update CASCADE,
-) create table OzvSherkatHoghoghi (
+) create table OzvSherkatHoghoghi (                  ////////////
 	DarsadSahamDari int not null check (
 		DarsadSahamDari > 0
 		and DarsadSahamDari <= 100
