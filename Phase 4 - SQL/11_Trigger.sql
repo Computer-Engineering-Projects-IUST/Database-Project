@@ -22,7 +22,7 @@ BEGIN
       TedadMoamelat = TedadMoamelat + 1,
       HajmMoamelat = HajmMoamelat + INSERTED.HajmMoamele
   FROM Boors
-  INNER JOIN INSERTED ON Boors.Tarikh = INSERTED.Tarikh AND Boors.CodeBoorsiSarmayeGozar = INSERTED.CodeBoorsiSarmayeGozar;
+  INNER JOIN INSERTED ON Boors.Tarikh = INSERTED.Tarikh;
 END;
 
 GO
