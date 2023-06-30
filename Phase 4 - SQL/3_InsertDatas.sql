@@ -17,7 +17,7 @@ values (
 		1500,
 		700
 	)
-insert into DaftarPishkhan
+/*insert into DaftarPishkhan
 values (
 		1,
 		'sadat',
@@ -47,7 +47,7 @@ values (
 		'02145478914',
 		'0228743941',
 		'Hossein Mokhtari'
-	)
+	)*/
 insert into SarmayeGozar
 values (1, 1),
 	(2, 1),
@@ -91,7 +91,7 @@ values (
 		'02146217314',
 		'tehran-mrydan Emam Hossein'
 	)
-insert into karbarHaghighi
+/*insert into karbarHaghighi
 values (
 		1,
 		'09109530191',
@@ -301,7 +301,7 @@ values (
 		'02178699700',
 		'Mitra',
 		'Mitra@gmail.com'
-	)
+	)*/
 insert into karbarHoghoghi
 values (
 		3,

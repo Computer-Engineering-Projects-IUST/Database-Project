@@ -12,7 +12,7 @@ END;
 */
 GO
 
-CREATE TRIGGER update_boors
+/*CREATE TRIGGER update_boors
 ON Moamele
 AFTER INSERT
 AS
@@ -23,19 +23,21 @@ BEGIN
       HajmMoamelat = HajmMoamelat + INSERTED.HajmMoamele
   FROM Boors
   INNER JOIN INSERTED ON Boors.Tarikh = INSERTED.Tarikh;
-END;
+END;*/
 
 GO
 
 CREATE TRIGGER update_tarikhcheMoamelat
-AFTER INSERT ON Moamele
-FOR EACH ROW
+ON Moamele
+AFTER INSERT
+AS
 BEGIN
   UPDATE TarikhchemoamelatSherketBoorsi
-  SET ArzeshSahamAkharinKharidRoz = NEW.ArzeshHarSahm ,
-  TedadForosh= TedadForosh + NEW.HajmMoamele,
-  HajmMoamelat = HajmMoamelat + NEW.HajmMoamele ,
-  DarsadTaghiratSaham = 100* (ArzeshSahamAkharinKharidRoz - ArzeshSahamAvalinKharidRoz ) / ArzeshSahamAvalinKharidRoz 
-  WHERE Boors.Tarikh = NEW.Tarikh AND Daraee.CodeBoorsiSarmayeGozar = NEW.CodeBoorsiSarmayeGozar;
+  SET ArzeshSahamAkharinKharidRoz = INSERTED.ArzeshHarSahm,
+      TedadForosh = TedadForosh + INSERTED.HajmMoamele,
+      HajmMoamelat = HajmMoamelat + INSERTED.HajmMoamele,
+      DarsadTaghiratSaham = 100 * (ArzeshSahamAkharinKharidRoz - ArzeshSahamAvalinKharidRoz) / ArzeshSahamAvalinKharidRoz
+  FROM TarikhchemoamelatSherketBoorsi
+  INNER JOIN INSERTED ON TarikhchemoamelatSherketBoorsi.Tarikh = INSERTED.Tarikh;
 END;
 
