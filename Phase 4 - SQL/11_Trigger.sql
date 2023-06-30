@@ -1,27 +1,31 @@
-CREATE TRIGGER update_sarmayegozar_daraee
-AFTER INSERT ON Moamele
-FOR EACH ROW
+/*CREATE TRIGGER update_sarmayegozar_daraee
+ON Moamele
+AFTER INSERT
+AS
 BEGIN
   UPDATE Daraee
-  SET MeghdarSahm = MeghdarSahm + NEW.HajmMoamele ,
-  GheymatHarSahmDarZamanKharid=NEW.ArzeshHarSahm
-  WHERE Daraee.IdSherkat = NEW.IdSherkatBoorsi AND Daraee.CodeBoorsiSarmayeGozar = NEW.CodeBoorsiSarmayeGozar;
+  SET MeghdarSahm = MeghdarSahm + INSERTED.HajmMoamele,
+  GheymatHarSahmDarZamanKharid = INSERTED.ArzeshHarSahm
+  FROM Daraee
+  INNER JOIN INSERTED ON Daraee.IdSherkat = INSERTED.IdSherkatBoorsi AND Daraee.CodeBoorsiSarmayeGozar = INSERTED.CodeBoorsiSarmayeGozar;
 END;
-
+*/
+GO
 
 CREATE TRIGGER update_boors
-AFTER INSERT ON Moamele
-FOR EACH ROW
+ON Moamele
+AFTER INSERT
+AS
 BEGIN
   UPDATE Boors
-  SET ArzeshMoamelat = ArzeshMoamelat + NEW.ArzeshHarSahm*NEW.HajmMoamele ,
-  ---arzesh bazar??
-  --shakhes kol?
-  --shakhes kol hamvazn?
+  SET ArzeshMoamelat = ArzeshMoamelat + INSERTED.ArzeshHarSahm*INSERTED.HajmMoamele,
       TedadMoamelat = TedadMoamelat + 1,
-	  HajmMoamelat=HajmMoamelat + NEW.HajmMoamele
-	WHERE Boors.Tarikh = NEW.Tarikh AND Daraee.CodeBoorsiSarmayeGozar = NEW.CodeBoorsiSarmayeGozar;
+      HajmMoamelat = HajmMoamelat + INSERTED.HajmMoamele
+  FROM Boors
+  INNER JOIN INSERTED ON Boors.Tarikh = INSERTED.Tarikh AND Boors.CodeBoorsiSarmayeGozar = INSERTED.CodeBoorsiSarmayeGozar;
 END;
+
+GO
 
 CREATE TRIGGER update_tarikhcheMoamelat
 AFTER INSERT ON Moamele

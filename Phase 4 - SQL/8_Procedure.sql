@@ -10,6 +10,7 @@ begin
 		  ( Tarikh <= @Datecieling and Tarikh >= @DateFloor)
 end;
 
+GO
 
 --2) نمایش شرکت های بورسی بر اساس بیشترین میزان تفاوت بین ارزش سهام اولین خرید و آخرین خرید روز در تاریخ دلخواه
 CREATE PROCEDURE proc_most_difference @date date

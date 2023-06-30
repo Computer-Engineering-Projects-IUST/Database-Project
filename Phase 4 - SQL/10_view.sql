@@ -4,7 +4,8 @@ select IdSherkatBoorsi,
     HajmMoamele,
     ArzeshHarSahm
 from Moamele
-where Tarikh = CAST(GETDATE() as date) پ
+where Tarikh = CAST(GETDATE() as date) 
+GO
 --2) نمایش وضعیت روزانه بورس
     create view Boors_Daily as
 select *
