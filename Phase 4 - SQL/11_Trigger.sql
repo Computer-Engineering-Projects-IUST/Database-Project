@@ -1,4 +1,6 @@
-/*CREATE TRIGGER update_sarmayegozar_daraee
+/*
+GO
+CREATE TRIGGER update_sarmayegozar_daraee
 ON Moamele
 AFTER INSERT
 AS
@@ -10,9 +12,10 @@ BEGIN
   INNER JOIN INSERTED ON Daraee.IdSherkat = INSERTED.IdSherkatBoorsi AND Daraee.CodeBoorsiSarmayeGozar = INSERTED.CodeBoorsiSarmayeGozar;
 END;
 */
+/*
 GO
 
-/*CREATE TRIGGER update_boors
+CREATE TRIGGER update_boors
 ON Moamele
 AFTER INSERT
 AS
@@ -23,8 +26,9 @@ BEGIN
       HajmMoamelat = HajmMoamelat + INSERTED.HajmMoamele
   FROM Boors
   INNER JOIN INSERTED ON Boors.Tarikh = INSERTED.Tarikh;
-END;*/
-
+END;
+*/
+/*
 GO
 
 CREATE TRIGGER update_tarikhcheMoamelat
@@ -40,4 +44,5 @@ BEGIN
   FROM TarikhchemoamelatSherketBoorsi
   INNER JOIN INSERTED ON TarikhchemoamelatSherketBoorsi.Tarikh = INSERTED.Tarikh;
 END;
+*/
 

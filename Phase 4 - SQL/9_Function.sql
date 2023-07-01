@@ -1,3 +1,4 @@
+USE [Stock Market]
 --1) نمایش تمام معاملات در یک زیر گروه خاص
 
 Create FUNCTION Fun_all_transactions_of_subGroup(@group nvarchar(30))  

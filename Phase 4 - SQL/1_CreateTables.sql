@@ -9,6 +9,18 @@ use [Stock Market] Create table SherkatBoorsi(
 	PRIMARY KEY (Sherkat_id),
 	CONSTRAINT dummy_cons CHECK (grouh != 'kladfla')
 );
+
+ ---- NEW 
+Create table DaftarPishkhan(
+	CodeDaftar int not null Primary Key,
+	name nvarchar (50) not null,
+	Ostan nvarchar(30) not null,
+	Shahr nvarchar(30) not null,
+	CodePosti int not null DEFAULT -1,
+	Phone char(11),
+	CodeMelliMasool char(10) not null ,
+	CONSTRAINT dummy_cons_1 CHECK (codePosti > -100)
+)
 Create table Kargozari(
 	CodeKargozari int not null Primary key,
 	NerkhKarmozd int not null check (

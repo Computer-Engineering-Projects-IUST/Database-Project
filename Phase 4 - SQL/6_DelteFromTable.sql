@@ -1,3 +1,4 @@
+use [Stock Market]
 delete from KarbarHaghighi
 where CodeBoorsi = 1
 

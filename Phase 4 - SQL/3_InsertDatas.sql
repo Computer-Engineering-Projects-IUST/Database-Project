@@ -1,33 +1,52 @@
+USE [Stock Market]
+/*
 insert into Boors
 values (
-		cast(GETDATE() as date),
+		GETDATE(),
 		15000,
 		12000,
 		65,
 		66,
 		1500,
 		700
-	),
-	(
-		cast(GETDATE() + 1 as date),
+	);
+	*/
+	/*
+	insert into Boors
+values(
+		'2023-06-02',
 		15000,
 		12000,
 		65,
 		66,
 		1500,
 		700
-	)
-/*insert into DaftarPishkhan
+	);
+	insert into Boors
+values(
+		cast (GETDATE() as date),
+		15000,
+		12000,
+		65,
+		66,
+		1500,
+		700
+	);/*
+	*/
+	/*
+insert into DaftarPishkhan
 values (
 		1,
-		'sadat',
+		'sadat abad',
 		'tehran',
 		'tehran',
 		123,
 		'02145678214',
-		'2150654598',
-		'Ali Gholami'
-	),
+		'2150654598'
+	);*/
+
+
+	/*
 	(
 		2,
 		'basirat',
@@ -47,7 +66,7 @@ values (
 		'02145478914',
 		'0228743941',
 		'Hossein Mokhtari'
-	)*/
+	)*//*
 insert into SarmayeGozar
 values (1, 1),
 	(2, 1),
@@ -481,3 +500,4 @@ values (
 		45,
 		8816
 	)
+	*/
