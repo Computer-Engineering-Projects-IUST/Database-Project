@@ -1,4 +1,5 @@
-use [Stock Market] Create table SherkatBoorsi(
+use [Stock Market] 
+Create table SherkatBoorsi(
 	Sherkat_id int not null,
 	name nvarchar(50) not null,
 	CodeSabti int not null UNIQUE,
@@ -73,7 +74,8 @@ Create table Kargozari(
 	Name nvarchar(50) not null,
 	Foreign Key (CodeBoorsi) references SarmayeGozar(CodeBoorsi),
 	Foreign Key (CodeKargozari) references Kargozari(CodeKargozari),
-) Create table KarbarHoghoghi(
+) 
+Create table KarbarHoghoghi(
 	CodeBoorsi int not null Primary Key,
 	CodeMeliNamayandeSherkat char(10) not null check (CodeMeliNamayandeSherkat NOT LIKE '%[^0-9]%'),
 	ShenaseMeli int,
@@ -95,7 +97,8 @@ Create table Kargozari(
 	Foreign Key (CodeBoorsi) references SarmayeGozar(CodeBoorsi) on delete cascade on update cascade,
 	Foreign Key (CodeBoorsiNamayande) references KarbarHaghighi(CodeBoorsi) on delete
 	set DEFAULT on update CASCADE,
-) create table OzvSherkatHoghoghi (
+) 
+create table OzvSherkatHoghoghi (
 	DarsadSahamDari int not null check (
 		DarsadSahamDari > 0
 		and DarsadSahamDari <= 100
@@ -105,7 +108,8 @@ Create table Kargozari(
 	CodeBoorsiSherkatHoghoghi int not null,
 	Foreign Key (CodeBoorsi) references KarbarHaghighi(CodeBoorsi) on delete no action,
 	Foreign Key (CodeBoorsiSherkatHoghoghi) references KarbarHoghoghi(CodeBoorsi) on delete no action,
-) Create table Moamele(
+) 
+Create table Moamele(
 	ShomareMoamele int not null Primary Key,
 	CodeBoorsiSarmayeGozar int,
 	CodeKargozari int,

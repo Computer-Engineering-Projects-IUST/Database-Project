@@ -1,3 +1,5 @@
+USE [Stock Market]
+GO
 --1) نمایش حجم و ارزش معامالت روزانه همه شرکت ها
 create view daily_companies_status as
 select IdSherkatBoorsi,
