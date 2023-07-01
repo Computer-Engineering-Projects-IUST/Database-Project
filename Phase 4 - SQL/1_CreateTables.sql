@@ -31,7 +31,7 @@ Create table Kargozari(
 	Website nvarchar(50),
 	Phone char(11),
 	Adress nvarchar(200),
-) Create table DaftarPishkhan(
+) /*Create table DaftarPishkhan(
 	CodeDaftar int not null Primary Key,
 	name nvarchar (50) not null,
 	Ostan nvarchar(30) not null,
@@ -40,7 +40,8 @@ Create table Kargozari(
 	Phone char(11),
 	CodeMelliMasool char(10) not null check (CodeMelliMasool NOT LIKE '%[^0-9]%'),
 	CONSTRAINT dummy_cons_1 CHECK (codePosti > -100)
-) create table SarmayeGozar(
+)*/ 
+create table SarmayeGozar(
 	CodeBoorsi int not null Primary Key,
 	CodeDaftarPishkhan int,
 	Foreign Key (CodeDaftarPishkhan) references DaftarPishkhan(CodeDaftar) on delete

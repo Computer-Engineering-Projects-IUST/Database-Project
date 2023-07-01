@@ -9,16 +9,7 @@ Create table SherkatBoorsi(
 	PRIMARY KEY (Sherkat_id),
 	CONSTRAINT dummy_cons CHECK (grouh != 'kladfla')
 );
-Create table DaftarPishkhan(
-	CodeDaftar int not null Primary Key,
-	name varchar (50) not null,
-	Ostan varchar(30) not null,
-	Shahr varchar(30) not null,
-	CodePosti int not null DEFAULT -1,
-	Phone char(11),
-	CodeMelliMasool char(10) not null ,
-	CONSTRAINT dummy_cons_1 CHECK (codePosti > -100)
-)
+
 Create table Kargozari(
 	CodeKargozari int not null Primary key,
 	NerkhKarmozd int not null check (
@@ -29,7 +20,18 @@ Create table Kargozari(
 	Phone char(11),
 	Adress varchar(200)
 ) 
+
 Create table DaftarPishkhan(
+	CodeDaftar int not null Primary Key,
+	name varchar (50) not null,
+	Ostan varchar(30) not null,
+	Shahr varchar(30) not null,
+	CodePosti int not null DEFAULT -1,
+	Phone char(11),
+	CodeMelliMasool char(10) not null ,
+	CONSTRAINT dummy_cons_1 CHECK (codePosti > -100)
+)
+/*Create table DaftarPishkhan(
 	CodeDaftar int not null Primary Key,
 	name varchar (50) not null,
 	Ostan varchar(30) not null,
@@ -38,7 +40,7 @@ Create table DaftarPishkhan(
 	Phone char(11),
 	CodeMelliMasool char(10) not null check (CodeMelliMasool NOT LIKE '%[^0-9]%'),
 	CONSTRAINT dummy_cons_1 CHECK (codePosti > -100)
-)
+)*/
 create table SarmayeGozar(
 	CodeBoorsi int not null Primary Key,
 	CodeDaftarPishkhan int,

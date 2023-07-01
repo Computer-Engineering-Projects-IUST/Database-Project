@@ -1,4 +1,4 @@
-insert into Boors values (now(), 15000, 12000, 65, 66, 1500, 700);
+insert into Boors values (Getdate(), 15000, 12000, 65, 66, 1500, 700);
 insert into Boors values ('2023-06-02', 15000, 12000, 60, 66, 1500, 700);
 insert into Boors values ('2023-06-03', 15000, 12000, 65, 66, 1500, 700);
 
@@ -102,9 +102,9 @@ VALUES
 	(5, 2, 3, 4, '2020-04-10', 2000000, 5, 2),
 	(6, 1, 4, 6, '2022-05-20', 1200000, 3, 7),
 	(7, 2, 1, 7, '2021-06-14', 6300000, 3, 10),
-	(8, 2, 3, 4, CAST(now() as date), 2000000, 5, 2),
-	(9, 1, 4, 6, CAST(now() as date), 1200000, 3, 7),
-	(10, 2, 1, 7, CAST(now() as date), 6300000, 3, 10);
+	(8, 2, 3, 4, CAST(GetDate() as date), 2000000, 5, 2),
+	(9, 1, 4, 6, CAST(Getdate() as date), 1200000, 3, 7),
+	(10, 2, 1, 7, CAST(Getdate() as date), 6300000, 3, 10);
 	
 		select * from moamele;
 

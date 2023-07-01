@@ -1,25 +1,42 @@
 --1) نمایش خرید و فروش های یک کاربر مشخص در یک بازه زمانی مشخص
+/*DECLARE @id AS INT
+SELECT @id = 1
+
+DECLARE @DateFloor AS DATE
+SELECT @DateFloor = '2020-05-03'
+
+DECLARE @Datecieling AS DATE
+SELECT @Datecieling = '2023-06-03'
 
 select *
 from Moamele
-where (CodeBoorsiSarmayeGozar = id or
-	  CodeBoorsiForoshande = id) and
-	  ( Tarikh <= Datecieling and Tarikh >= DateFloor)
-
-
+where (CodeBoorsiSarmayeGozar = @id or
+	  CodeBoorsiForoshande = @id) and
+	  ( Tarikh <= @Datecieling and Tarikh >= @DateFloor)
+*/
+	  
 --2) نمایش حجم و ارزش معامالت یک شرکت در بازه های دلخواه
+DECLARE @id AS INT
+SELECT @id = 1
+
+DECLARE @DateFloor AS DATE
+SELECT @DateFloor = '2020-06-03'
+
+DECLARE @Datecieling AS DATE
+SELECT @Datecieling = '2023-06-03'
 
 select HajmMoamele, ArzeshHarSahm
 from Moamele
-where (IdSherkatBoorsi = id) and
-	  ( Tarikh <= Datecieling and Tarikh >= DateFloor)
+where (IdSherkatBoorsi = @id) and
+	  ( Tarikh <= @Datecieling and Tarikh >= @DateFloor)
 
 
 --3) نمایش اعضای هیئت مدیره یک شرکت حقوقی 
-
+/*DECLARE @id AS INT
+SELECT @id = 3
 select *
 from OzvSherkatHoghoghi
-where CodeBoorsiSherkatHoghoghi = id
+where CodeBoorsiSherkatHoghoghi = @id*/
 
 
 --4) رتبه بندی کارگزاری ها بر اساس میزان درآمد
@@ -43,9 +60,13 @@ order by ArzeshSaham DESC
 
 --6) اعمال تغییرات بر روی دیتا های شرکت های بورسی
 
+DECLARE @newArzesh AS INT
+SELECT @newArzesh = 12000000;
+DECLARE @id AS INT
+SELECT @id = 1
 update SherkatBoorsi
-set ArzeshSaham = newArzesh
-where Sherkat_id = id
+set ArzeshSaham = @newArzesh
+where Sherkat_id = @id
 
 
 --7) ایجاد کاربر های حقیقی
